@@ -1,6 +1,7 @@
 #include <iostream>
+#include "Task.h"
 
 int main() {
-	std::cout << "hello world" << std::endl;
+	Task A("asd", "asd", 2, std::chrono::system_clock::now());
 	return 0;
 }
