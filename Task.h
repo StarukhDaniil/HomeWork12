@@ -15,4 +15,8 @@ private:
 public:
 	Task(const std::string& title, const std::string& desription, const int& priority,
 		std::chrono::system_clock::time_point deadline);
+
+	Task(const Task&) = default;
+	Task& operator=(const Task&) = default;
+	~Task() = default;
 };
