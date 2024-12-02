@@ -26,7 +26,7 @@ public:
 	const std::chrono::system_clock::time_point& getDeadline() const;
 	const bool& done() const;
 
-	Task(const std::string& title, const std::string& desription, const int& priority,
+	Task(const std::string& title, const std::string& description, const int& priority,
 		std::chrono::system_clock::time_point deadline);
 
 	Task(const Task&) = default;

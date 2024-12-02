@@ -19,9 +19,9 @@ void TaskView::displayTasks(const std::vector<Task>& tasks) const {
 		std::cout << "Deadline: " << std::put_time(std::localtime(&time), "%d-%m-%Y") << std::endl;
 		std::cout << "Status: " << (task.done() ? "is done" : "is not done") << std::endl;
 		time = std::chrono::system_clock::to_time_t(task.getCreatedAt());
-		std::cout << "Created at: " << std::put_time(std::localtime(&time), "%d-%m-%Y");
+		std::cout << "Created at: " << std::put_time(std::localtime(&time), "%d-%m-%Y") << std::endl;
 		std::cout << std::endl;
-		});
+	});
 
 	std::cout << std::endl;
 }
@@ -48,4 +48,23 @@ int TaskView::getIntegerInput(const std::string& prompt) const {
 			return input;
 		}
 	}
+}
+
+std::chrono::system_clock::time_point TaskView::getDate() const {
+	std::istringstream prompt("Day: Month: Year:");
+	std::string partPrompt;
+	std::stringstream input;
+	std::string partInput;
+
+	std::cout << "Enter deadline: " << std::endl;
+	while (prompt >> partPrompt) {
+		std::cout << partPrompt << " ";
+		std::cin >> partInput;
+		input << partInput << "-";
+	}
+
+	std::tm tm {};
+	input >> std::get_time(&tm, "%d-%m-%Y");
+	std::time_t time = mktime(&tm);
+	return std::chrono::system_clock::from_time_t(time);
 }

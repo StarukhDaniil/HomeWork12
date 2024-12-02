@@ -15,7 +15,7 @@ std::vector<Task> TaskManager::filterTasks(std::function<bool(const Task&)> filt
 		if (filter(task)) {
 			filteredTasks.push_back(task);
 		}
-		});
+	});
 	return filteredTasks;
 }
 
