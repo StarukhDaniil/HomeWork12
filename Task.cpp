@@ -12,7 +12,7 @@ int& Task::getPriority() {
 	return priority;
 }
 
-std::chrono::system_clock::time_point& Task::getDeadline() {
+std::time_t& Task::getDeadline() {
 	return deadline;
 }
 
@@ -20,7 +20,7 @@ void Task::makeDone() {
 	isDone = true;
 }
 
-const std::chrono::system_clock::time_point& Task::getCreatedAt() const {
+const std::time_t& Task::getCreatedAt() const {
 	return createdAt;
 }
 
@@ -36,7 +36,7 @@ const int& Task::getPriority() const {
 	return priority;
 }
 
-const std::chrono::system_clock::time_point& Task::getDeadline() const {
+const std::time_t& Task::getDeadline() const {
 	return deadline;
 }
 
@@ -45,11 +45,11 @@ const bool& Task::done() const {
 }
 
 Task::Task(const std::string& title, const std::string& description, const int& priority,
-	std::chrono::system_clock::time_point deadline) :
+	std::time_t deadline) :
 	title(title),
 	description(description),
 	priority(priority),
 	deadline(deadline) {
-	createdAt = std::chrono::system_clock::now();
+	createdAt = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
 	isDone = false;
 }

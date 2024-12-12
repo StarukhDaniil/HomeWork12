@@ -2,10 +2,10 @@
 #include <functional>
 
 void TaskController::addTask() {
-	const std::string title = view.getInput("Enter title: ");
-	const std::string description = view.getInput("Enter description: ");
-	const int priority = view.getIntegerInput("Enter priority: ");
-	const std::chrono::system_clock::time_point deadline = view.getDate();
+	const std::string title = view.getInput("Enter title:");
+	const std::string description = view.getInput("Enter description:");
+	const int priority = view.getIntegerInput("Enter priority:");
+	const std::time_t deadline = view.getDate();
 
 	system("cls");
 	manager.addTask(Task(title, description, priority, deadline));
