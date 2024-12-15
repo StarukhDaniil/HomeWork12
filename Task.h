@@ -17,7 +17,7 @@ public:
 	std::string& getDescription();
 	int& getPriority();
 	std::time_t& getDeadline();
-	void makeDone();
+	void markAsDone();
 
 	const std::time_t& getCreatedAt() const;
 	const std::string& getTitle() const;
@@ -25,6 +25,7 @@ public:
 	const int& getPriority() const;
 	const std::time_t& getDeadline() const;
 	const bool& done() const;
+	bool operator==(const std::string& title) const;
 
 	Task(const std::string& title, const std::string& description, const int& priority,
 		std::time_t deadline);

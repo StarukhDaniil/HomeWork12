@@ -16,7 +16,7 @@ std::time_t& Task::getDeadline() {
 	return deadline;
 }
 
-void Task::makeDone() {
+void Task::markAsDone() {
 	isDone = true;
 }
 
@@ -42,6 +42,10 @@ const std::time_t& Task::getDeadline() const {
 
 const bool& Task::done() const {
 	return isDone;
+}
+
+bool Task::operator==(const std::string& title) const {
+	return this->title == title;
 }
 
 Task::Task(const std::string& title, const std::string& description, const int& priority,
